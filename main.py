@@ -18,4 +18,4 @@ async def predict(file: UploadFile = File(...)):
     xyxy = results.pandas().xyxy[0].to_dict(orient="records")
     xywhn = results.pandas().xywhn[0].to_dict(orient="records")
 
-    return {"xyxy" : xyxy, "xywhn" : xywhn, }
+    return {"xyxy" : xyxy, "xywhn" : xywhn}
