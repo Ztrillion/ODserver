@@ -5,7 +5,7 @@ import io
 
 app = FastAPI()
 
-dt_model = torch.hub.load('ultralytics/yolov5', 'custom', path='models/general_model.pt', force_reload=True)
+dt_model = torch.hub.load('ultralytics/yolov5', 'custom', path='https://github.com/Ztrillion/ODserver/blob/master/models/general_model.pt', force_reload=True)
 dt_model.eval()
 
 @app.post("/predict/")
