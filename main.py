@@ -1,7 +1,6 @@
 from fastapi import FastAPI,UploadFile, File
-import torch
+import torch, uvicorn, io
 from PIL import Image
-import io
 
 app = FastAPI()
 
@@ -19,3 +18,8 @@ async def predict(file: UploadFile = File(...)):
     xywhn = results.pandas().xywhn[0].to_dict(orient="records")
 
     return {"xyxy" : xyxy, "xywhn" : xywhn}
+
+if __name__ == '__main__':
+    
+    uvicorn.run("main:app", host="127.0.0.1", port=8080,
+                reload=True, debug=True)
